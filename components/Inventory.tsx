@@ -38,7 +38,12 @@ const RewardItem = ({ reward }: { reward: RealWorldRewardType }) => (
 
 
 const Inventory = () => {
-    const { inventory, realWorldRewards } = useAppContext();
+    const { state: { inventory, realWorldRewards } } = useAppContext();
+
+    // This check is defensive. The parent page should prevent rendering if inventory is null.
+    if (!inventory) {
+        return null;
+    }
 
     return (
         <div className="w-full max-w-2xl mx-auto bg-black/30 backdrop-blur-md rounded-lg shadow-lg border border-cyan-500/20 p-6 text-white font-sans mt-8">

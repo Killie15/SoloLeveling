@@ -34,7 +34,7 @@ const Saga = ({ saga }: { saga: SagaType }) => (
 
 
 const SkillsWindow = () => {
-  const { sagas } = useAppContext();
+  const { state: { sagas } } = useAppContext();
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-black/30 backdrop-blur-md rounded-lg shadow-lg border border-cyan-500/20 p-6 text-white font-sans mt-8">
