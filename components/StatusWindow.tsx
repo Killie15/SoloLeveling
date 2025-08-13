@@ -21,7 +21,9 @@ const CoreStat = ({ name, value }: { name: string; value: number }) => (
 );
 
 const StatusWindow = () => {
-  const { userProfile } = useAppContext();
+  const { state: { userProfile } } = useAppContext();
+
+  if (!userProfile) return null; // Or a loading skeleton
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-black/30 backdrop-blur-md rounded-lg shadow-lg border border-cyan-500/20 p-6 text-white font-sans">
